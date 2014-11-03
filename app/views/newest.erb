@@ -1,0 +1,60 @@
+ <%= erb :_nav %>
+ <% counter = 1 %>
+
+<center>
+	<tr style="height:10px"></tr>
+	<tr>
+		<td>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<% @posts.each do |post| %>
+					<tr>
+						<td align="right" valign="top" class="title">
+							<%= counter.to_s + "." %>
+						</td>
+							<td>
+							</td>
+							<td class="title">
+								<a href="item?id=8550148"><%= post.title.capitalize %></a>
+								<% counter += 1 %>
+							</td>
+							<tr>
+					</tr>
+					<tr>
+						<td colspan="2">
+						</td>
+						<td class="subtext">
+							<span id="score_8550148">1 point
+							</span> by 
+							<a href="/user/<%= post.user_id %>">
+								<font color="#3c963c">esu
+								</font>
+							</a> 0 minutes ago  | 
+							<a href="item?id=8550148">discuss
+							</a> | 
+							<a href="edit?id=8550148">edit</a> | 
+							<a href="delete-confirm?id=8550148&amp;whence=%6e%65%77%65%73%74">delete
+							</a>
+						</td>
+					</tr><%= post.title.capitalize %>
+					<% end %>
+						<td class="title">
+							<a href="newest?next=8549932&amp;n=31" rel="nofollow">More</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+
+  <table width="100%" cellspacing="0" cellpadding="1">
+    <tbody>
+      <tr>
+        <td bgcolor="#ff6600"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</center>
+
+<%= erb :_footer %>
