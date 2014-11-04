@@ -5,7 +5,7 @@ class CreateCommentsTable < ActiveRecord::Migration
   		t.integer :post_id, index: true
 	  	t.string :comment, null:false
 
-	  	t.timestamp
+	  	t.timestamps
   	end
   end
 end

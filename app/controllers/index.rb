@@ -1,4 +1,5 @@
 get '/' do
-  # Look in app/views/index.erb
+  @posts = Post.all.order('id desc')
+  @user = User.find_by( username: session[:username] )
   erb :index
 end

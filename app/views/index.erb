@@ -1,51 +1,52 @@
  <%= erb :_nav %>
-  <center>
-    <tr style="height:10px"></tr>
-    <table border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
-      <tbody>
-    <tr>
-      <td>
-        <table border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td align="right" valign="top" class="title">1.
-              </td>
+ <% counter = 1 %>
+
+<center>
+  <tr style="height:10px"></tr>
+  <tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <td align="right" valign="top" class="title">
+              <%= counter.to_s + "." %>
+            </td>
               <td>
-                <center>
-                  <a id="up_8549790" onclick="return vote(this)" href="vote?for=8549790&amp;dir=up&amp;by=esu&amp;auth=4b482c24efd7765f4c1936a60e9f606de722af2c&amp;whence=%6e%65%77%73">
-                    <div class="votearrow" title="upvote"></div>
-                  </a>
-                  <span id="down_8549790">
-                  </span>
-                </center>
               </td>
               <td class="title">
-                <a href="http://www.gatesnotes.com/Health/Eradicating-Malaria-in-a-Generation">We Can Eradicate Malaria Within a Generation</a>
-                <span class="comhead"> (gatesnotes.com) </span>
+                <a href="/post/<%= post.id %>">
+                <%= post.title.capitalize %></a>
+                <% counter += 1 %>
               </td>
-            </tr>
-            <tr>
-              <td colspan="2"></td>
-              <td class="subtext">
-                <span id="score_8549790">23 points</span> by 
-                <a href="user?id=dsr12">dsr12</a>
-                 31 minutes ago  | 
-                 <a href="item?id=8549790">1 comment</a>
-               </td>
-             </tr>
-             <tr style="height:5px"></tr>
-             <tr style="height:10px"></tr>
-             <tr>
-              <td colspan="2"></td>
-              <td class="title"><a href="news?p=2" rel="nofollow">More</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td><img src="s.gif" height="10" width="0">
+              <tr>
+          </tr>
+          <tr>
+            <td colspan="2">
+            </td>
+            <td class="subtext">
+              <span id="score_8550148">1 point
+              </span> by 
+              <a href="/user/<%= post.user_id %>">
+                <font color="#3c963c"><%= post.user.username %>
+                </font>
+              </a> <%= post.created_at %>  | 
+              <a href="/post/<%= post.id %>">discuss
+              </a> | 
+              <a href="edit?id=8550148">edit</a> | 
+              <a href="delete-confirm?id=8550148&amp;whence=%6e%65%77%65%73%74">delete
+              </a>
+            </td>
+          </tr>
+          <% end %>
+            <td class="title">
+              <a href="newest?next=8549932&amp;n=31" rel="nofollow">More</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
 
   <table width="100%" cellspacing="0" cellpadding="1">
     <tbody>
@@ -56,6 +57,7 @@
   </table>
   <br>
 </center>
+
 <%= erb :_footer %>
 
   

@@ -26,7 +26,7 @@ end
 get '/logout1' do
   session[:username] = nil
   session[:round] = nil
-  redirect back
+  redirect '/'
 end
 
 get '/signup_and_login' do
@@ -48,8 +48,8 @@ get '/user/:id' do
   if !login?
     redirect '/signup_and_login'
   else
-    puts "whatever"
-     @user = User.find_by( username: session[:username] )
+     @user = User.find_by( id: params[:id] )
+     @posts = Post.where( user_id: @user.id )
     erb :'user/user_info'
   end
 end

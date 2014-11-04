@@ -6,7 +6,7 @@ class CreatePostsTable < ActiveRecord::Migration
 	  	t.string :url
 	  	t.string :text
 
-	  	t.timestamp
+	  	t.timestamps
   	end
   end
 end

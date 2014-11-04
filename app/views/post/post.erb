@@ -1,0 +1,92 @@
+ <%= erb :_nav %>
+<center>
+	<table border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
+	<tbody>
+		<tr>
+			<td>
+				<center>
+					<br>
+					
+						<div class="votearrow" title="upvote">
+						</div>
+
+					<span id="down_8550315"></span>
+				</center>
+			</td>
+			<td class="title">
+				<a href="/post/<%= @post.id %>"><%= @post.title %></a>
+			</td></tr><tr><td colspan="1"></td>
+			<td class="subtext">
+				<span id="score_8550315">77 points</span> by 
+				<a href="/user/<%= @post.user_id %>"><%= @post.user.username %></a> <%= @post.created_at %>   | 
+				<a href="item?id=8550315">47 comments</a>
+			</td>
+		</tr>
+		<tr style="height:2px"></tr>
+		<tr>
+			<td></td>
+			<td><br><%= @post.text %>
+			</td>
+		</tr>
+		<tr style="height:10px"></tr>
+		<tr>
+			<td></td>
+			<td>
+				<form method="post" action="/comment/<%= @post.id %>">
+					<input type="hidden" name="parent" value="8550315">
+					<input type="hidden" name="whence" value="item?id=8550315">
+					<input type="hidden" name="hmac" value="18294898f596a50790c9a729dbb82d873a792b78">
+					<textarea name="comment" rows="6" cols="60"></textarea><br><br>
+					<span class="subtext">If you haven't already, would you mind reading about HN's
+		    		<a href="newswelcome.html">
+		    			<u>approach to comments</u>
+		    		</a>?
+		    	</span><br><br>
+					<input type="submit" value="add comment">
+				</form>
+				<table border="0">
+  <tbody>
+    <tr>
+      <td>
+        <table border="0">
+          <tbody>
+          	<% @all_comment.each do |comment| %>
+            <tr>
+              <td>
+                <img src="s.gif" height="1" width="0"></td><td valign="top">
+                <center>
+                  <a id="up_8550631" onclick="return vote(this)" href="vote?for=8550631&amp;dir=up&amp;by=esu&amp;auth=ebf5a5adffc1a9e65565eee739610cff033d3bf7&amp;whence=%69%74%65%6d%3f%69%64%3d%38%35%35%30%33%31%35">
+                    <div class="votearrow" title="upvote">
+                    </div>
+                    </a>
+                    <span id="down_8550631"></span>
+                  </center>
+                </td>
+                <td class="default">
+                  <div style="margin-top:2px; margin-bottom:-10px; ">
+                    <span class="comhead">
+                      <a href="/user/<%= comment.user_id %>"><%= comment.user.username %></a> <%= comment.created_at %>  | 
+                      <a href="item?id=8550631">link</a>
+                    </span>
+                  </div><br>
+                <span class="comment">
+                  <font color="#000000"><%= comment.comment %>
+                  </font>
+                  <p>
+                  <font size="1">
+                    <u>
+                      <a href="#">reply</a>
+                      <% end %>
+                    </u>
+                  </font>
+                </p>
+              </span>
+            </td>
+          </tr>
+			</td>
+	</tr>
+</tbody>
+</center>
+
+
+		
